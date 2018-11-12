@@ -1,9 +1,17 @@
 # coding: utf-8
-
+import time
+import random
+import os
+import hashlib
+import hmac
 from leancloud import Engine
 from leancloud import LeanEngineError
 
 engine = Engine()
+APP_ID = os.environ['LEANCLOUD_APP_ID']
+APP_KEY = os.environ['LEANCLOUD_APP_KEY']
+MASTER_KEY = os.environ['LEANCLOUD_APP_MASTER_KEY']
+PORT = int(os.environ['LEANCLOUD_APP_PORT'])
 
 
 @engine.define
@@ -14,10 +22,14 @@ def hello(**params):
         return 'Hello, LeanCloud!'
 
 
-@engine.before_save('Todo')
-def before_todo_save(todo):
-    content = todo.get('content')
-    if not content:
-        raise LeanEngineError('内容不能为空')
-    if len(content) >= 240:
-        todo.set('content', content[:240] + ' ...')
+@engine.define
+def sign(client_id, **params):
+    timestamp = str(int(time.time() * 1000))
+    none = ''
+    text = f'{APP_ID}:{client_id}::{timestamp}:{none}'
+
+    data = {
+        'timestamp': timestamp,
+        'none': none
+    }
+    return {}
