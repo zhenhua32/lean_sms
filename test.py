@@ -20,11 +20,19 @@ data = {'client_id': 'cat'}
 result = cloudfunc.run('sign_login', **data)
 print(result)
 
-data = {'client_id': 'cat', 'member_ids': ['cat', 'dog', 'duck']}
+data = {
+  'client_id': 'cat',
+  'member_ids': ['cat', 'dog', 'duck'],
+}
 result = cloudfunc.run('sign_chat', **data)
 print(result)
 
-data = {'client_id': 'cat', 'conv_id': 'hello', 'member_ids': ['cat', 'dog', 'duck'], 'action': 'invite'}
+data = {
+  'client_id': 'cat',
+  'conv_id': 'hello',
+  'member_ids': ['cat', 'dog', 'duck'],
+  'action': 'invite',
+}
 result = cloudfunc.run('sign_group', **data)
 print(result)
 
