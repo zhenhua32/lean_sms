@@ -5,9 +5,9 @@ import os
 import leancloud
 from gevent import monkey
 
-from app import app
-from cloud import engine
-from cloud_env import APP_ID, APP_KEY, MASTER_KEY, PORT
+from app.app import app
+from cloud_func.cloud import engine
+from cloud_func.cloud_env import APP_ID, APP_KEY, MASTER_KEY, PORT
 
 monkey.patch_all()
 

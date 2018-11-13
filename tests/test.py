@@ -51,4 +51,5 @@ data = {
 }
 result = cloudfunc.run('sign_block', **data)
 print(result)
-print(type(result))
+
+cloudfunc.request_sms_code

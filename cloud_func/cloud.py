@@ -1,7 +1,7 @@
 # coding: utf-8
 from leancloud import Engine, LeanEngineError
 
-from cloud_env import APP_ID, MASTER_KEY
+from cloud_func.cloud_env import APP_ID, MASTER_KEY
 from cloud_func.sign import engine as sign_engine
 
 engine = Engine()

@@ -29,3 +29,7 @@ def echo_socket(ws):
   while True:
     message = ws.receive()
     ws.send(message)
+
+
+if __name__ == '__main__':
+  app.run(port=3000)
