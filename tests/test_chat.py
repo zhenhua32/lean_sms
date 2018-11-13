@@ -20,11 +20,18 @@ leancloud.init(APP_ID, app_key=APP_KEY)
 
 user = leancloud.User()
 user.login('tobe', TOBE_PASS)
+print(user.get_roles()[0].get('name'))
 
 role_query = leancloud.Query(leancloud.Role)
 role_query.equal_to('name', 'admin')
 role_query_list = role_query.find()
 print(role_query_list)
+admin  = role_query_list[0]
+user_relation = admin.relation('users')
+users_with_admin = user_relation.query.find()[0]
+print(users_with_admin.get('objectId'))
+print(users_with_admin.id)
+
 
 role_query.equal_to('users', leancloud.User.get_current())
 role_query_with_current_user = role_query.find()
@@ -42,7 +49,7 @@ def create_user():
   user.set_username('tobe')
   user.set_mobile_phone_number(TOBE_PHONE)
   user.set_email(TOBE_EMAIL)
-  user.set_password(TOBE_PASS')
+  user.set_password(TOBE_PASS)
   user.sign_up()
 
 
@@ -52,6 +59,7 @@ def create():
   print(conversation.name)
   conversation.save()
   print(conversation)
+
 
 
 if __name__ == '__main__':
