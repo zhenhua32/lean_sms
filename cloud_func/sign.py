@@ -65,7 +65,6 @@ def sign_chat_history(client_id, conv_id):
   """
   查询聊天记录的签名
   """
-  nonce = secrets.token_hex(6)
   signature_ts = int(time.time())
   nonce = secrets.token_hex(6)
   text = f'{APP_ID}:{client_id}:{conv_id}:{nonce}:{signature_ts}'
