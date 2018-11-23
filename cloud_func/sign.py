@@ -23,7 +23,7 @@ def get_signature(text, timestamp, nonce):
 
 
 @engine.define
-def sign_login(client_id, **args):
+def sign_login(client_id, **kwargs):
   """
   用户登录的签名
   """
@@ -35,7 +35,7 @@ def sign_login(client_id, **args):
 
 
 @engine.define
-def sign_chat(client_id, member_ids, **args):
+def sign_chat(client_id, member_ids, **kwargs):
   """
   对话签名
   """
@@ -48,7 +48,7 @@ def sign_chat(client_id, member_ids, **args):
 
 
 @engine.define
-def sign_group(client_id, conv_id, member_ids, action, **args):
+def sign_group(client_id, conv_id, member_ids, action, **kwargs):
   """
   群组功能的签名, action in ['invite', 'kick']
   """
@@ -61,7 +61,7 @@ def sign_group(client_id, conv_id, member_ids, action, **args):
 
 
 @engine.define
-def sign_chat_history(client_id, conv_id, **args):
+def sign_chat_history(client_id, conv_id, **kwargs):
   """
   查询聊天记录的签名
   """
@@ -75,7 +75,7 @@ def sign_chat_history(client_id, conv_id, **args):
 
 
 @engine.define
-def sign_block(client_id, conv_id, action, member_ids=None, **args):
+def sign_block(client_id, conv_id, action, member_ids=None, **kwargs):
   """
   黑名单的签名
   """
