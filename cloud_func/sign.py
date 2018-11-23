@@ -61,7 +61,7 @@ def sign_group(client_id, conv_id, member_ids, action, **args):
 
 
 @engine.define
-def sign_chat_history(client_id, conv_id):
+def sign_chat_history(client_id, conv_id, **args):
   """
   查询聊天记录的签名
   """
